@@ -66,7 +66,7 @@ func (w *TermUIWrapper) convertStyle(style termui.Style) tcell.Style {
 // convertColor converts termui color to tcell (tview) color.
 func (w *TermUIWrapper) convertColor(color termui.Color) tcell.Color {
 	switch color {
-	case termui.ColorClear:
+	case termui.ColorClear, termui.ColorWhite, termui.ColorYellow:
 		return tcell.ColorDefault
 	case termui.ColorBlack:
 		return tcell.ColorBlack
@@ -74,16 +74,12 @@ func (w *TermUIWrapper) convertColor(color termui.Color) tcell.Color {
 		return tcell.ColorRed
 	case termui.ColorGreen:
 		return tcell.ColorGreen
-	case termui.ColorYellow:
-		return tcell.ColorYellow
 	case termui.ColorBlue:
 		return tcell.ColorBlue
 	case termui.ColorMagenta:
 		return tcell.ColorPurple
 	case termui.ColorCyan:
 		return tcell.ColorTeal
-	case termui.ColorWhite:
-		return tcell.ColorWhite
 	default:
 		return tcell.ColorDefault
 	}
